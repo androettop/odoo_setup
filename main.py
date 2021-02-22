@@ -59,8 +59,8 @@ def main():
 
     # Init setup
 
-    os.system(f"useradd -p $(openssl passwd -crypt {password}) {username}")
-    os.system(f"mkdir /home/{username}/.ssh")
+    os.system(f"useradd -m -p $(openssl passwd -crypt {password}) {username}")
+    os.system(f"mkdir -p /home/{username}/.ssh")
     file = open(f"/home/{username}/.ssh/authorized_keys", "w")
     file.write(public_key)
     file.close()
