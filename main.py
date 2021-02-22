@@ -61,7 +61,7 @@ def main():
 
     os.system(f"useradd -p $(openssl passwd -crypt {password}) {username}")
     os.system(f"mkdir /home/{username}/.ssh")
-    file = open("/home/{username}/.ssh/authorized_keys", "w")
+    file = open(f"/home/{username}/.ssh/authorized_keys", "w")
     file.write(public_key)
     file.close()
     os.system(f"chown -R {username}:{username} /home/{username}/.ssh")
